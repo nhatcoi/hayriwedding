@@ -813,8 +813,8 @@ section {
   opacity: 0.9;
 }
 
-/* Image Modal */
-.image-modal {
+/* Album Modal */
+.album-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -828,39 +828,261 @@ section {
   padding: 2rem;
 }
 
-.modal-content {
+.album-modal .modal-content {
   position: relative;
   max-width: 90vw;
   max-height: 90vh;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 900px;
 }
 
-.modal-content img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 10px;
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: #FFFFFA;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.modal-header h2 {
+  font-family: 'Playfair Display', serif;
+  color: #2d3436;
+  font-size: 1.5rem;
+  margin: 0;
 }
 
 .close-btn {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background: white;
+  background: transparent;
   border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #636e72;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.close-btn:hover {
+  background: rgba(212, 175, 55, 0.1);
+  color: #D4AF37;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.main-image-container {
+  position: relative;
+  margin-bottom: 2rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.main-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #2d3436;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.nav-btn:hover {
+  background: #D4AF37;
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+  left: 1rem;
+}
+
+.next-btn {
+  right: 1rem;
+}
+
+.image-info {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.image-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: #2d3436;
+  margin-bottom: 0.5rem;
+}
+
+.image-info p {
+  color: #636e72;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.image-counter {
+  display: inline-block;
+  background: rgba(212, 175, 55, 0.1);
+  color: #D4AF37;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.thumbnail-strip {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+  justify-content: center;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1);
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.thumbnail.active {
+  border-color: #D4AF37;
+  transform: scale(1.1);
+}
+
+/* Album count display */
+.album-count {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: white;
+  opacity: 0.9;
+  background: rgba(0,0,0,0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  display: inline-block;
 }
 
 .gallery-cta {
   background: linear-gradient(135deg, #F9EAEA 0%, #FFFFFA 100%);
   padding: 4rem 0;
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0 2rem 0;
+  padding: 2rem 0;
+}
+
+.pagination-btn {
+  background: white;
+  border: 2px solid #D4AF37;
+  color: #D4AF37;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: none;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+.pagination-btn:hover:not(.disabled) {
+  background: #D4AF37;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+  cursor: pointer;
+}
+
+.pagination-btn.disabled {
+  background: #f5f5f5;
+  border-color: #ddd;
+  color: #999;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.pagination-numbers {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pagination-number {
+  background: white;
+  border: 2px solid #e0e0e0;
+  color: #666;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: none;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-number:hover {
+  border-color: #D4AF37;
+  color: #D4AF37;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.pagination-number.active {
+  background: #D4AF37;
+  border-color: #D4AF37;
+  color: white;
+  transform: scale(1.1);
+}
+
+.pagination-info {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.pagination-info p {
+  color: #666;
+  font-size: 0.95rem;
+  font-style: italic;
 }
 
 /* Testimonials Section */
@@ -1874,5 +2096,113 @@ section {
     width: 24px;
     height: 24px;
     object-fit: contain;
+  }
+
+  /* Pagination mobile styles */
+  .pagination {
+    gap: 0.5rem;
+    margin: 2rem 0 1rem 0;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+  }
+
+  .pagination-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    min-width: 80px;
+    cursor: pointer !important;
+  }
+
+  .pagination-numbers {
+    gap: 0.3rem;
+  }
+
+  .pagination-number {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+    cursor: pointer !important;
+  }
+
+  .pagination-info p {
+    font-size: 0.85rem;
+  }
+
+  /* Gallery Responsive */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .gallery-filters {
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Album Modal Responsive */
+  .album-modal {
+    padding: 1rem;
+  }
+
+  .album-modal .modal-content {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+
+  .modal-header {
+    padding: 1rem 1.5rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .modal-body {
+    padding: 1rem;
+  }
+
+  .main-image {
+    height: 250px;
+  }
+
+  .nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .prev-btn {
+    left: 0.5rem;
+  }
+
+  .next-btn {
+    right: 0.5rem;
+  }
+
+  .thumbnail-strip {
+    gap: 0.25rem;
+    padding: 0.5rem 0;
+  }
+
+  .thumbnail {
+    width: 60px;
+    height: 45px;
+  }
+
+  .image-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .image-info p {
+    font-size: 0.9rem;
+  }
+
+  .image-counter {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
   }
 }
