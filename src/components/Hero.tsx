@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 interface HeroProps {
   backgroundImage?: string;
@@ -145,17 +146,19 @@ const Hero: React.FC<HeroProps> = ({
         </motion.p>
         {showButtons && (
           <motion.div variants={itemVariants} className="hero-buttons">
-            <motion.button 
-              className="btn-primary"
+            <motion.div
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              {t('hero.viewWork')}
-            </motion.button>
+              <Link to="/gallery" className="btn-primary">
+                {t('hero.viewWork')}
+              </Link>
+            </motion.div>
             <motion.button 
               className="btn-secondary"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => window.open('https://www.facebook.com/messages/t/278556888663700', '_blank', 'noopener,noreferrer')}
             >
               {t('hero.getQuote')}
             </motion.button>

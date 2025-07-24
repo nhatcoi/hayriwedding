@@ -220,7 +220,7 @@ const Testimonials: React.FC = () => {
         >
         <div className="stats-grid">
           <motion.div className="stat-item" whileHover={{ scale: 1.05 }}>
-            <div className="stat-number">500+</div>
+            <div className="stat-number">100+</div>
             <div className="stat-label">Cặp đôi hạnh phúc</div>
           </motion.div>
 

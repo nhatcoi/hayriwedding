@@ -82,7 +82,7 @@ const Gallery: React.FC = () => {
     }
   ];
 
-  const filteredImages = activeFilter === 'all' 
+  const filteredImages = activeFilter === 'all'
     ? galleryImages 
     : galleryImages.filter(img => img.category === activeFilter);
 

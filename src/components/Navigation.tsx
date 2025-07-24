@@ -81,9 +81,9 @@ const Navigation: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="flag">
-              {i18n.language === 'vi' ? '🇻🇳' : '🇺🇸'}
-            </span>
+            {/*<span className="flag">*/}
+            {/*  {i18n.language === 'vi' ? '' : ''}*/}
+            {/*</span>*/}
             <span className="lang-text">
               {i18n.language === 'vi' ? 'EN' : 'VI'}
             </span>
