@@ -25,7 +25,7 @@ const Gallery: React.FC = () => {
   const [selectedAlbum, setSelectedAlbum] = useState<GalleryAlbum | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 9;
 
   const filters = [
     { key: 'all', label: 'All' },
@@ -698,68 +698,41 @@ const Gallery: React.FC = () => {
               exit={{ scale: 0.8, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="modal-header">
-                <h2>{selectedAlbum.title}</h2>
+              <div className="image-only-container">
+                <img 
+                  src={selectedAlbum.images[currentImageIndex].src} 
+                  alt={selectedAlbum.images[currentImageIndex].title}
+                  className="modal-image-only"
+                />
+                
                 <button 
-                  className="close-btn"
+                  className="modal-close-btn"
                   onClick={() => setSelectedAlbum(null)}
                   aria-label="Close album"
                   title="Close album (Esc)"
                 >
                   ✕
                 </button>
-              </div>
-              
-              <div className="modal-body">
-                <div className="main-image-container">
-                  <img 
-                    src={selectedAlbum.images[currentImageIndex].src} 
-                    alt={selectedAlbum.images[currentImageIndex].title}
-                    className="main-image"
-                  />
-                  
-                  {selectedAlbum.images.length > 1 && (
-                    <>
-                      <button 
-                        className="nav-btn prev-btn"
-                        onClick={handlePrevImage}
-                        aria-label="Previous image"
-                        title="Previous image (←)"
-                      >
-                        ←
-                      </button>
-                      <button 
-                        className="nav-btn next-btn"
-                        onClick={handleNextImage}
-                        aria-label="Next image"
-                        title="Next image (→)"
-                      >
-                        →
-                      </button>
-                    </>
-                  )}
-                </div>
-                
-                <div className="image-info">
-                  <h3>{selectedAlbum.images[currentImageIndex].title}</h3>
-                  <p>{selectedAlbum.images[currentImageIndex].description}</p>
-                  <span className="image-counter">
-                    {currentImageIndex + 1} / {selectedAlbum.images.length}
-                  </span>
-                </div>
                 
                 {selectedAlbum.images.length > 1 && (
-                  <div className="thumbnail-strip">
-                    {selectedAlbum.images.map((image, index) => (
-                      <img
-                        key={image.id}
-                        src={image.src}
-                        alt={image.title}
-                        className={`thumbnail ${index === currentImageIndex ? 'active' : ''}`}
-                        onClick={() => setCurrentImageIndex(index)}
-                      />
-                    ))}
-                  </div>
+                  <>
+                    <button 
+                      className="nav-btn prev-btn"
+                      onClick={handlePrevImage}
+                      aria-label="Previous image"
+                      title="Previous image (←)"
+                    >
+                      ←
+                    </button>
+                    <button 
+                      className="nav-btn next-btn"
+                      onClick={handleNextImage}
+                      aria-label="Next image"
+                      title="Next image (→)"
+                    >
+                      →
+                    </button>
+                  </>
                 )}
               </div>
             </motion.div>
