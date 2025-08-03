@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 import Hero from '../components/Hero';
+import bannersData from '../data/banners.json';
+import navigationData from '../data/navigation.json';
 
 const Contact: React.FC = () => {
-  const { t } = useTranslation();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -33,14 +33,14 @@ const Contact: React.FC = () => {
   return (
     <div className="contact-page">
       {/* Hero Section */}
-      <Hero 
-        backgroundImage="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2048&q=80"
-        customTitle={t('contact.title')}
-        customSubtitle="Get In Touch"
-        customDescription={t('contact.subtitle')}
-        showButtons={false}
-        showFloatingElements={false}
-      />
+      {/* <Hero 
+        backgroundImage={bannersData.contact.backgroundImage}
+        customTitle={bannersData.contact.title}
+        customSubtitle={bannersData.contact.subtitle}
+        customDescription={bannersData.contact.description}
+        showButtons={bannersData.contact.showButtons}
+        showFloatingElements={bannersData.contact.showFloatingElements}
+      /> */}
 
       {/* Contact Section */}
       <section className="contact-content">
@@ -58,22 +58,22 @@ const Contact: React.FC = () => {
               <motion.form variants={itemVariants} className="contact-form">
                 <div className="form-row">
                   <motion.div className="form-group" whileFocus={{ scale: 1.02 }}>
-                    <input type="text" placeholder={t('contact.form.name')} required />
+                    <input type="text" placeholder={navigationData.contact.form.name} required />
                   </motion.div>
                   <motion.div className="form-group" whileFocus={{ scale: 1.02 }}>
-                    <input type="email" placeholder={t('contact.form.email')} required />
+                    <input type="email" placeholder={navigationData.contact.form.email} required />
                   </motion.div>
                 </div>
                 <div className="form-row">
                   <motion.div className="form-group" whileFocus={{ scale: 1.02 }}>
-                    <input type="tel" placeholder={t('contact.form.phone')} />
+                    <input type="tel" placeholder={navigationData.contact.form.phone} />
                   </motion.div>
                   <motion.div className="form-group" whileFocus={{ scale: 1.02 }}>
-                    <input type="date" placeholder={t('contact.form.date')} />
+                    <input type="date" placeholder={navigationData.contact.form.date} />
                   </motion.div>
                 </div>
                 <motion.div className="form-group" whileFocus={{ scale: 1.02 }}>
-                  <textarea placeholder={t('contact.form.message')} rows={5}></textarea>
+                  <textarea placeholder={navigationData.contact.form.message} rows={5}></textarea>
                 </motion.div>
                 <motion.button 
                   type="submit"
@@ -81,7 +81,7 @@ const Contact: React.FC = () => {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  {t('contact.form.submit')}
+                  {navigationData.contact.form.submit}
                 </motion.button>
               </motion.form>
             </motion.div>
@@ -95,10 +95,10 @@ const Contact: React.FC = () => {
                   className="info-item"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="info-icon">📧</div>
+                  <div className="info-icon"></div>
                   <div className="info-content">
                     <h4>Email</h4>
-                    <p>{t('footer.email')}</p>
+                    <p>{navigationData.footer.email}</p>
                   </div>
                 </motion.div>
 
@@ -106,10 +106,10 @@ const Contact: React.FC = () => {
                   className="info-item"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="info-icon">📱</div>
+                  <div className="info-icon"></div>
                   <div className="info-content">
                     <h4>Phone</h4>
-                    <p>{t('footer.phone')}</p>
+                    <p>{navigationData.footer.phone}</p>
                   </div>
                 </motion.div>
 
@@ -117,10 +117,10 @@ const Contact: React.FC = () => {
                   className="info-item"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="info-icon">📍</div>
+                  <div className="info-icon"></div>
                   <div className="info-content">
                     <h4>Address</h4>
-                    <p>{t('footer.address')}</p>
+                    <p>{navigationData.footer.address}</p>
                   </div>
                 </motion.div>
 
@@ -128,7 +128,7 @@ const Contact: React.FC = () => {
                   className="info-item"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="info-icon">🕒</div>
+                  <div className="info-icon"></div>
                   <div className="info-content">
                     <h4>Working Hours</h4>
                     <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
@@ -141,10 +141,17 @@ const Contact: React.FC = () => {
               <div className="social-media">
                 <h4>Follow Us</h4>
                 <div className="social-links">
-                  <motion.a href="#" whileHover={{ scale: 1.2, rotate: 5 }}>📘</motion.a>
-                  <motion.a href="#" whileHover={{ scale: 1.2, rotate: -5 }}>📷</motion.a>
-                  <motion.a href="#" whileHover={{ scale: 1.2, rotate: 5 }}>🐦</motion.a>
-                  <motion.a href="#" whileHover={{ scale: 1.2, rotate: -5 }}>💼</motion.a>
+                  <motion.a
+                    href="https://www.facebook.com/hayriwedding"
+                    whileHover={{ scale: 1.2, rotate: 5 }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/>
+                    </svg>
+                  </motion.a>
                 </div>
               </div>
             </motion.div>

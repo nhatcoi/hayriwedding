@@ -1,10 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import navigationData from '../data/navigation.json';
 
 const Footer: React.FC = () => {
-  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -19,26 +18,26 @@ const Footer: React.FC = () => {
           <div className="footer-logo">
             <img src="/logohayri.png" alt="HayriWedding" />
             <h3>HayriWedding</h3>
-            <p>{t('footer.tagline')}</p>
+            <p>{navigationData.footer.tagline}</p>
           </div>
           
           <div className="footer-links">
-            <h4>{t('footer.services')}</h4>
-            <Link to="/services">{t('footer.ceremoniesLink')}</Link>
-            <Link to="/services">{t('footer.floralLink')}</Link>
-            <Link to="/services">{t('footer.planningLink')}</Link>
+            <h4>{navigationData.footer.services}</h4>
+            <Link to="/services">{navigationData.footer.ceremoniesLink}</Link>
+            <Link to="/services">{navigationData.footer.floralLink}</Link>
+            <Link to="/services">{navigationData.footer.planningLink}</Link>
           </div>
           
           <div className="footer-contact">
-            <h4>{t('footer.contact')}</h4>
-            <p>📧 {t('footer.email')}</p>
-            <p>📱 {t('footer.phone')}</p>
-            <p>📍 {t('footer.address')}</p>
+            <h4>{navigationData.footer.contact}</h4>
+            <p>{navigationData.footer.email}</p>
+            <p>{navigationData.footer.phone}</p>
+            <p>{navigationData.footer.address}</p>
           </div>
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {currentYear} HayriWedding. {t('footer.rights')}</p>
+          <p>&copy; {currentYear} HayriWedding. {navigationData.footer.rights}</p>
         </div>
       </motion.div>
     </footer>

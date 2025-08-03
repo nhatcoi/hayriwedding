@@ -1,0 +1,50 @@
+{
+  "home": {
+    "backgroundImage": "https://scontent.fhan5-9.fna.fbcdn.net/v/t39.30808-6/509421223_122249576138229320_5047399543584967297_n.png?_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=Op2paMQSw3AQ7kNvwF8D-a2&_nc_oc=AdlooBZtfJinL7PsQfxtWIa2WgxxcYjz7Xfmq78lcG6Ibb8vn0-7hYE42KCRuy_OE8Q&_nc_zt=23&_nc_ht=scontent.fhan5-9.fna&_nc_gid=e7R0i-CdcR_CE1OsC6fh7Q&oh=00_AfT8vYgXH8PsXipMPLHiaDUuxSq2kZHRhGVCPHfQyFSb0w&oe=6887D76E",
+    "title": "Lễ Cưới Việt Nam",
+    "subtitle": "Gia Tiên Truyền Thống",
+    "description": "Tạo nên những khoảnh khắc kỳ diệu, tôn vinh truyền thống và ăn mừng câu chuyện tình yêu của bạn",
+    "showButtons": true,
+    "showFloatingElements": true
+  },
+  "gallery": {
+    "backgroundImage": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "title": "Tác Phẩm Đẹp",
+    "subtitle": "Our Portfolio",
+    "description": "Cùng chiêm ngưỡng những lễ cưới kỳ diệu chúng tôi đã tạo ra",
+    "showButtons": false,
+    "showFloatingElements": false
+  },
+  "services": {
+    "backgroundImage": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2048&q=80",
+    "title": "Dịch Vụ Cao Cấp",
+    "subtitle": "Professional Services",
+    "description": "Những lễ cưới được tổ chức tinh tế, tôn vinh truyền thống Việt Nam với vẻ đẹp hiện đại",
+    "showButtons": false,
+    "showFloatingElements": false
+  },
+  "contact": {
+    "backgroundImage": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2048&q=80",
+    "title": "Hãy Tạo Nên Ngày Hoàn Hảo",
+    "subtitle": "Get In Touch",
+    "description": "Sẵn sàng bắt đầu lập kế hoạch cho lễ cưới Việt Nam trong mơ của bạn?",
+    "showButtons": false,
+    "showFloatingElements": false
+  },
+  "testimonials": {
+    "backgroundImage": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2048&q=80",
+    "title": "Cảm Nhận Của Khách Hàng",
+    "subtitle": "Client Stories",
+    "description": "Chia sẻ từ những cặp đôi đã đồng hành cùng chúng tôi trong ngày hạnh phúc",
+    "showButtons": false,
+    "showFloatingElements": false
+  },
+  "about": {
+    "backgroundImage": "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2048&q=80",
+    "title": "Về HayriWedding",
+    "subtitle": "Our Story",
+    "description": "Preserving Vietnamese wedding traditions with modern elegance",
+    "showButtons": false,
+    "showFloatingElements": false
+  }
+} 

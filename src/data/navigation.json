@@ -1,0 +1,41 @@
+{
+  "nav": {
+    "home": "Trang Chủ",
+    "services": "Dịch Vụ",
+    "gallery": "Thư Viện", 
+    "testimonials": "Đánh Giá",
+    "contact": "Liên Hệ",
+    "about": "Về Chúng Tôi"
+  },
+  "hero": {
+    "title": "Lễ Cưới Việt Nam",
+    "subtitle": "Gia Tiên Truyền Thống",
+    "description": "Tạo nên những khoảnh khắc kỳ diệu, tôn vinh truyền thống và ăn mừng câu chuyện tình yêu của bạn",
+    "viewWork": "Xem Tác Phẩm",
+    "getQuote": "Báo Giá"
+  },
+  "contact": {
+    "title": "Hãy Tạo Nên Ngày Hoàn Hảo",
+    "subtitle": "Sẵn sàng bắt đầu lập kế hoạch cho lễ cưới Việt Nam trong mơ của bạn?",
+    "form": {
+      "name": "Họ Tên",
+      "email": "Địa Chỉ Email",
+      "phone": "Số Điện Thoại",
+      "date": "Ngày Cưới",
+      "message": "Hãy chia sẻ về đám cưới trong mơ của bạn...",
+      "submit": "Gửi Tin Nhắn"
+    }
+  },
+  "footer": {
+    "tagline": "Tạo nên những kỷ niệm cưới Việt Nam vượt thời gian",
+    "services": "Dịch Vụ",
+    "ceremoniesLink": "Lễ Gia Tiên",
+    "floralLink": "Thiết Kế Hoa",
+    "planningLink": "Tổ Chức Sự Kiện",
+    "contact": "Liên Hệ",
+    "email": "hayriwedding@gmail.com",
+    "phone": "+84 97 431 04 09",
+    "address": "TP. Hồ Chí Minh, Việt Nam",
+    "rights": "Design by nhatcoi.space"
+  }
+} 

@@ -1,70 +1,17 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 import Hero from '../components/Hero';
+import bannersData from '../data/banners.json';
+import testimonialsData from '../data/testimonials.json';
+
+interface TestimonialImage {
+  image: string;
+}
 
 const Testimonials: React.FC = () => {
-  const { t } = useTranslation();
   const [selectedTestimonial, setSelectedTestimonial] = useState(0);
 
-  const testimonials = t('testimonials.couples', { returnObjects: true }) as Array<{
-    name: string;
-    text: string;
-  }>;
-
-  const detailedTestimonials = [
-    {
-      ...testimonials[0],
-      rating: 5,
-      date: "March 2024",
-      event: "Traditional Gia Tiên Ceremony",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80",
-      location: "Ho Chi Minh City"
-    },
-    {
-      ...testimonials[1],
-      rating: 5,
-      date: "February 2024",
-      event: "Modern Vietnamese Wedding",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80",
-      location: "Hanoi"
-    },
-    {
-      ...testimonials[2],
-      rating: 5,
-      date: "January 2024",
-      event: "Complete Wedding Planning",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80",
-      location: "Da Nang"
-    },
-    {
-      name: "An & David",
-      text: "As an international couple, we were worried about incorporating Vietnamese traditions properly. HayriWedding guided us through every step and created a beautiful ceremony that honored both cultures.",
-      rating: 5,
-      date: "December 2023",
-      event: "Cross-Cultural Wedding",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80",
-      location: "Ho Chi Minh City"
-    },
-    {
-      name: "Hong & Nam",
-      text: "The floral arrangements were absolutely stunning! Every detail was perfect and the team made our special day stress-free and magical.",
-      rating: 5,
-      date: "November 2023",
-      event: "Floral Design & Decoration",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80",
-      location: "Can Tho"
-    },
-    {
-      name: "Vy & Kien",
-      text: "HayriWedding transformed our vision into reality. The traditional setup was authentic and beautiful, and our families were so impressed with the attention to cultural details.",
-      rating: 5,
-      date: "October 2023",
-      event: "Traditional Ceremony Setup",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80",
-      location: "Hue"
-    }
-  ];
+  const detailedTestimonials: TestimonialImage[] = testimonialsData;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -90,24 +37,18 @@ const Testimonials: React.FC = () => {
     }
   };
 
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <span key={i} className={`star ${i < rating ? 'filled' : ''}`}>
-        ⭐
-      </span>
-    ));
-  };
+
 
   return (
     <div className="testimonials-page">
       {/* Hero Section */}
       <Hero 
-        backgroundImage="https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2048&q=80"
-        customTitle={t('testimonials.title')}
-        customSubtitle="Client Stories"
-        customDescription = "Chia sẻ từ những cặp đôi đã đồng hành cùng chúng tôi trong ngày hạnh phúc"
-        showButtons={false}
-        showFloatingElements={false}
+        backgroundImage={bannersData.testimonials.backgroundImage}
+        customTitle={bannersData.testimonials.title}
+        customSubtitle={bannersData.testimonials.subtitle}
+        customDescription={bannersData.testimonials.description}
+        showButtons={bannersData.testimonials.showButtons}
+        showFloatingElements={bannersData.testimonials.showFloatingElements}
       />
 
       {/* Featured Testimonial */}
@@ -130,21 +71,11 @@ const Testimonials: React.FC = () => {
                 transition={{ duration: 0.5 }}
               >
                 <div className="testimonial-content">
-                  <div className="quote-icon">"</div>
-                  <p>{detailedTestimonials[selectedTestimonial].text}</p>
-                  <div className="testimonial-meta">
+                  <div className="testimonial-image-large">
                     <img 
                       src={detailedTestimonials[selectedTestimonial].image} 
-                      alt={detailedTestimonials[selectedTestimonial].name} 
+                      alt="Đánh giá dịch vụ cưới" 
                     />
-                    <div className="meta-info">
-                      <h3>{detailedTestimonials[selectedTestimonial].name}</h3>
-                      <div className="rating">
-                        {renderStars(detailedTestimonials[selectedTestimonial].rating)}
-                      </div>
-                      <span className="event">{detailedTestimonials[selectedTestimonial].event}</span>
-                      <span className="location">{detailedTestimonials[selectedTestimonial].location} • {detailedTestimonials[selectedTestimonial].date}</span>
-                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -176,7 +107,7 @@ const Testimonials: React.FC = () => {
           viewport={{ once: true }}
         >
           <motion.h2 variants={itemVariants} className="section-title">
-            What Our Clients Say
+            Đánh Giá Về Chúng Tôi
           </motion.h2>
 
           <div className="testimonials-list">
@@ -188,20 +119,8 @@ const Testimonials: React.FC = () => {
                 whileHover={{ y: -5, scale: 1.02 }}
                 onClick={() => setSelectedTestimonial(index)}
               >
-                <div className="card-header">
-                  <img src={testimonial.image} alt={testimonial.name} />
-                  <div className="header-info">
-                    <h3>{testimonial.name}</h3>
-                    <div className="rating-small">
-                      {renderStars(testimonial.rating)}
-                    </div>
-                    <span className="date">{testimonial.date}</span>
-                  </div>
-                </div>
-                <p className="testimonial-text">{testimonial.text}</p>
-                <div className="card-footer">
-                  <span className="event-type">{testimonial.event}</span>
-                  <span className="location">{testimonial.location}</span>
+                <div className="testimonial-card-image">
+                  <img src={testimonial.image} alt="Đánh giá dịch vụ cưới" />
                 </div>
               </motion.div>
             ))}

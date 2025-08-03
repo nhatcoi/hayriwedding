@@ -1,50 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
+import specialServicesData from '../data/specialServices.json';
+import galleryHomeData from '../data/galleryHome.json';
+import testimonialsHomeData from '../data/testimonialsHome.json';
+import bannersData from '../data/banners.json';
+
+interface SpecialService {
+  id: number;
+  title: string;
+  description: string;
+  icon: string;
+  price: string;
+  image: string;
+}
+
+interface Testimonial {
+  id: number;
+  name: string;
+  text: string;
+}
 
 const Home: React.FC = () => {
-  const { t } = useTranslation();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-  const testimonials = t('testimonials.couples', { returnObjects: true }) as Array<{
-    name: string;
-    text: string;
-  }>;
-
-  const services = [
-    {
-      title: t('services.traditional.title'),
-      description: t('services.traditional.description'),
-      icon: "🏮",
-      price: t('services.traditional.price'),
-      image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-    },
-    {
-      title: t('services.floral.title'),
-      description: t('services.floral.description'),
-      icon: "🌸",
-      price: t('services.floral.price'),
-      image: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-    },
-    {
-      title: t('services.backdrop.title'),
-      description: t('services.backdrop.description'),
-      icon: "✨",
-      price: t('services.backdrop.price'),
-      image: "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-    }
-  ];
-
-  const galleryImages = [
-    "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-  ];
+  // Import data from JSON files
+  const specialServices: SpecialService[] = specialServicesData;
+  const galleryHome: string[] = galleryHomeData;
+  const testimonials: Testimonial[] = testimonialsHomeData;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -80,7 +64,14 @@ const Home: React.FC = () => {
   return (
     <div className="home-page">
       {/* Hero Section */}
-      <Hero />
+      <Hero 
+        backgroundImage={bannersData.home.backgroundImage}
+        customTitle={bannersData.home.title}
+        customSubtitle={bannersData.home.subtitle}
+        customDescription={bannersData.home.description}
+        showButtons={bannersData.home.showButtons}
+        showFloatingElements={bannersData.home.showFloatingElements}
+      />
 
       {/* Featured Services Section */}
       <section className="featured-services">
@@ -92,14 +83,14 @@ const Home: React.FC = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.h2 variants={itemVariants} className="section-title">
-            {t('services.title')}
+            Dịch Vụ Cao Cấp
           </motion.h2>
           <motion.p variants={itemVariants} className="section-subtitle">
-            {t('services.subtitle')}
+            Những lễ cưới được tổ chức tinh tế, tôn vinh truyền thống Việt Nam với vẻ đẹp hiện đại
           </motion.p>
           
           <div className="services-grid">
-            {services.map((service, index) => (
+            {specialServices.map((service, index) => (
               <motion.div
                 key={index}
                 className="service-card featured"
@@ -127,7 +118,7 @@ const Home: React.FC = () => {
           
           <motion.div variants={itemVariants} className="cta-section">
             <Link to="/services" className="btn-primary">
-              {t('nav.services')} →
+              Dịch Vụ →
             </Link>
           </motion.div>
         </motion.div>
@@ -143,14 +134,14 @@ const Home: React.FC = () => {
           viewport={{ once: true }}
         >
           <motion.h2 variants={itemVariants} className="section-title">
-            {t('gallery.title')}
+            Tác Phẩm Đẹp
           </motion.h2>
           <motion.p variants={itemVariants} className="section-subtitle">
-            {t('gallery.subtitle')}
+            Cùng chiêm ngưỡng những lễ cưới kỳ diệu chúng tôi đã tạo ra
           </motion.p>
           
           <div className="gallery-grid">
-            {galleryImages.slice(0, 6).map((image, index) => (
+            {galleryHome.slice(0, 6).map((image, index) => (
               <motion.div
                 key={index}
                 className="gallery-item"
@@ -163,7 +154,7 @@ const Home: React.FC = () => {
               >
                 <img src={image} alt={`Gallery ${index + 1}`} />
                 <div className="gallery-overlay">
-                  <span>{t('gallery.viewDetails')}</span>
+                  <span>Xem Chi Tiết</span>
                 </div>
               </motion.div>
             ))}
@@ -171,7 +162,7 @@ const Home: React.FC = () => {
           
           <motion.div variants={itemVariants} className="cta-section">
             <Link to="/gallery" className="btn-secondary">
-              {t('nav.gallery')} →
+              Thư Viện →
             </Link>
           </motion.div>
         </motion.div>
@@ -187,7 +178,7 @@ const Home: React.FC = () => {
           viewport={{ once: true }}
         >
           <motion.h2 variants={itemVariants} className="section-title">
-            {t('testimonials.title')}
+            Cảm Nhận Của Khách Hàng
           </motion.h2>
           
           <div className="testimonials-slider">
@@ -225,7 +216,7 @@ const Home: React.FC = () => {
 
           <motion.div variants={itemVariants} className="cta-section">
             <Link to="/testimonials" className="btn-primary">
-              {t('nav.testimonials')} →
+              Đánh Giá →
             </Link>
           </motion.div>
         </motion.div>

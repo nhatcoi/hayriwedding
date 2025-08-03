@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Lễ Gia Tiên Truyền Thống",
+    "description": "Trang trí lễ cưới Việt Nam đầy đủ với họa tiết đỏ vàng chính thống, bàn thờ tổ tiên.",
+    "icon": "🏮",
+    "price": "Từ 30.000.000₫",
+    "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    "id": 2,
+    "title": "Trang Trí Hoa",
+    "description": "Thiết kế hoa tươi thanh lịch kết hợp hoa truyền thống Việt Nam với phong cách hiện đại tinh tế.",
+    "icon": "🌸",
+    "price": "Từ 20.000.000₫",
+    "image": "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    "id": 3,
+    "title": "Phông Nền & Ánh Sáng",
+    "description": "Phông nền lễ cưới tuyệt đẹp với ánh sáng ấm cúng tạo nên không gian lãng mạn hoàn hảo.",
+    "icon": "✨",
+    "price": "Từ 15.000.000₫",
+    "image": "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+  }
+] 

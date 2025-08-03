@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import navigationData from '../data/navigation.json';
 
 interface HeroProps {
   backgroundImage?: string;
@@ -20,7 +20,6 @@ const Hero: React.FC<HeroProps> = ({
   customDescription,
   showButtons = true
 }) => {
-  const { t } = useTranslation();
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
 
@@ -138,11 +137,11 @@ const Hero: React.FC<HeroProps> = ({
         animate="visible"
       >
         <motion.h1 variants={itemVariants} className="hero-title">
-          <span className="title-line">{customTitle || t('hero.title')}</span>
-          <span className="title-accent">{customSubtitle || t('hero.subtitle')}</span>
+          <span className="title-line">{customTitle || navigationData.hero.title}</span>
+          <span className="title-accent">{customSubtitle || navigationData.hero.subtitle}</span>
         </motion.h1>
         <motion.p variants={itemVariants} className="hero-subtitle">
-          {customDescription || t('hero.description')}
+          {customDescription || navigationData.hero.description}
         </motion.p>
         {showButtons && (
           <motion.div variants={itemVariants} className="hero-buttons">
@@ -151,7 +150,7 @@ const Hero: React.FC<HeroProps> = ({
               whileTap={{ scale: 0.95 }}
             >
               <Link to="/gallery" className="btn-primary">
-                {t('hero.viewWork')}
+                {navigationData.hero.viewWork}
               </Link>
             </motion.div>
             <motion.button 
@@ -160,7 +159,7 @@ const Hero: React.FC<HeroProps> = ({
               whileTap={{ scale: 0.95 }}
               onClick={() => window.open('https://www.facebook.com/messages/t/278556888663700', '_blank', 'noopener,noreferrer')}
             >
-              {t('hero.getQuote')}
+              {navigationData.hero.getQuote}
             </motion.button>
           </motion.div>
         )}

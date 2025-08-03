@@ -1,10 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 import Hero from '../components/Hero';
+import bannersData from '../data/banners.json';
 
 const About: React.FC = () => {
-  const { t } = useTranslation();
 
   const teamMembers = [
     {
@@ -55,12 +54,12 @@ const About: React.FC = () => {
     <div className="about-page">
       {/* Hero Section */}
       <Hero 
-        backgroundImage="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2048&q=80"
-        customTitle={t('about.title')}
-        customSubtitle="Our Story"
-        customDescription="Preserving Vietnamese wedding traditions with modern elegance"
-        showButtons={false}
-        showFloatingElements={false}
+        backgroundImage={bannersData.about.backgroundImage}
+        customTitle={bannersData.about.title}
+        customSubtitle={bannersData.about.subtitle}
+        customDescription={bannersData.about.description}
+        showButtons={bannersData.about.showButtons}
+        showFloatingElements={bannersData.about.showFloatingElements}
       />
 
       {/* Our Story Section */}
@@ -74,7 +73,7 @@ const About: React.FC = () => {
         >
           <div className="story-content">
           <motion.div className="story-text" variants={itemVariants}>
-            <h2>{t('about.story')}</h2>
+            <h2>Câu Chuyện</h2>
             <p>
               Được thành lập vào năm 2010, HayriWedding bắt đầu như một dự án đầy đam mê nhằm gìn giữ và tôn vinh
               những giá trị truyền thống của nghi lễ Gia Tiên Việt Nam. Người sáng lập của chúng tôi, chị Linh Nguyễn, 
@@ -109,7 +108,7 @@ const About: React.FC = () => {
           viewport={{ once: true }}
         >
           <div className="mission-content">
-            <h2>{t('about.mission')}</h2>
+            <h2>Sứ Mệnh</h2>
             <div className="mission-grid">
           <motion.div 
             className="mission-item"

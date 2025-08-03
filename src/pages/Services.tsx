@@ -1,69 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 import Hero from '../components/Hero';
+import servicesData from '../data/services.json';
+import bannersData from '../data/banners.json';
+
+interface Service {
+  id: number;
+  title: string;
+  description: string;
+  icon: string;
+  price: string;
+  image: string;
+  features: string[];
+}
 
 const Services: React.FC = () => {
-  const { t } = useTranslation();
 
-  const services = [
-    {
-      title: "Trang trí truyền thống",
-      description: "Dịch vụ trang trí theo phong cách truyền thống với sắc đỏ và vàng, thể hiện sự trang nghiêm và ấm cúng trong ngày trọng đại.",
-      icon: "🏮",
-      price: "Từ 5.000.000 VNĐ",
-      image: "https://scontent.fhan5-6.fna.fbcdn.net/v/t39.30808-6/518344028_122258149658229320_5833930504773506012_n.jpg?stp=cp6_dst-jpg_p843x403_tt6&_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=tz0ARIFVG0YQ7kNvwE_v5u3&_nc_oc=AdlhKkMpByq-idm75QHd7ivHrhScEB7GePLQD03iY-QeiPuiyoNmrma8UWjYJACZcJw&_nc_zt=23&_nc_ht=scontent.fhan5-6.fna&_nc_gid=lFgbSh5knMTNjmPXr0GbnQ&oh=00_AfTLNjkEo3f-J8t0mjYNC0CVrpHV_0HS3RASZdpJk0WUGA&oe=68877016",
-      features: [
-        "Trang trí màu đỏ và vàng truyền thống",
-        "Bố trí bàn thờ gia tiên",
-        "Chuẩn bị lễ trà theo nghi lễ Việt Nam",
-        "Phối hợp âm nhạc truyền thống",
-        "Tư vấn phong tục tập quán"
-      ]
-    },
-    {
-      title: "Trang trí hoa tươi",
-      description: "Mang đến không gian tươi mới và lãng mạn với hoa tươi được bố trí tinh tế trong mọi góc sự kiện.",
-      icon: "🌸",
-      price: "Từ 7.000.000 VNĐ",
-      image: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-      features: [
-        "Hoa cầm tay cô dâu và các bó hoa trang trí",
-        "Trang trí vòm cưới bằng hoa",
-        "Hoa để bàn tiệc",
-        "Rải cánh hoa trong lễ cưới",
-        "Cung cấp hoa tươi tận nơi"
-      ]
-    },
-    {
-      title: "Trang trí phông nền",
-      description: "Thiết kế phông nền riêng biệt kết hợp ánh sáng chuyên nghiệp để tạo điểm nhấn và không gian lý tưởng cho ghi hình.",
-      icon: "✨",
-      price: "Từ 6.000.000 VNĐ",
-      image: "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-      features: [
-        "Thiết kế phông nền theo yêu cầu",
-        "Lắp đặt hệ thống ánh sáng chuyên nghiệp",
-        "Trang trí sân khấu và bàn thờ",
-        "Ánh sáng phù hợp để chụp hình",
-        "Tạo không gian ấm cúng, lung linh"
-      ]
-    },
-    {
-      title: "Tổ chức & điều phối cưới",
-      description: "Tư vấn, lập kế hoạch và điều phối toàn bộ lễ cưới để bạn yên tâm tận hưởng ngày trọng đại một cách trọn vẹn.",
-      icon: "💍",
-      price: "Từ 10.000.000 VNĐ",
-      image: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-      features: [
-        "Điều phối toàn bộ chương trình lễ cưới",
-        "Làm việc với nhà cung cấp dịch vụ",
-        "Lập kế hoạch chi tiết theo timeline",
-        "Hướng dẫn các nghi lễ truyền thống",
-        "Điều phối sự kiện trong ngày"
-      ]
-    }
-  ];
+  // Import services data from JSON
+  const services: Service[] = servicesData;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -93,12 +47,12 @@ const Services: React.FC = () => {
     <div className="services-page">
       {/* Hero Section */}
       <Hero 
-        backgroundImage="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2048&q=80"
-        customTitle={t('services.title')}
-        customSubtitle="Professional Services"
-        customDescription={t('services.subtitle')}
-        showButtons={false}
-        showFloatingElements={false}
+        backgroundImage={bannersData.services.backgroundImage}
+        customTitle={bannersData.services.title}
+        customSubtitle={bannersData.services.subtitle}
+        customDescription={bannersData.services.description}
+        showButtons={bannersData.services.showButtons}
+        showFloatingElements={bannersData.services.showFloatingElements}
       />
 
       {/* Services Detail Section */}
@@ -113,7 +67,7 @@ const Services: React.FC = () => {
           <div className="services-list">
             {services.map((service, index) => (
               <motion.div
-                key={index}
+                key={service.id}
                 className={`service-detail-card ${index % 2 === 1 ? 'reverse' : ''}`}
                 variants={itemVariants}
               >
@@ -184,7 +138,7 @@ const Services: React.FC = () => {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              {t('contact.form.submit')}
+              Gửi Tin Nhắn
             </motion.button>
           </div>
         </motion.div>
